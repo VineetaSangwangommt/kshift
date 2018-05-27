@@ -5,4 +5,4 @@ Kshift is a ETL tool to persist data from kafka to Any Store. As of now it suppo
 Below is the explaination of various configs:
 
 |  Config Name | Description | Type | Mandatory | Default |
-| ----|----|----|----- |
+|-----|----|----|-----|
