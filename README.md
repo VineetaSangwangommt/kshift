@@ -4,8 +4,8 @@ Kshift is a ETL tool to persist data from kafka to Any Store. As of now it suppo
 
 Below is the explaination of various configs:
 
-|Config Name | Description | Type | Mandatory | Default|
-|--|--|--|--|
+| Config Name | Description | Type | Mandatory | Default|
+|----|----|----|-----|
 isUpsert | If true, data will be upserted. If false, data will be appended. Key on kafka queue is mandatory in this case as data is deduplicated using key only. | Boolean | No | false 
 isSerialized | if false, processes the data as JSON. If true, uses the encoding class to encode the data. | Boolean | No | false 
 deserializerClass | class used for deserializing the data in case of serialized data | String | No | 
