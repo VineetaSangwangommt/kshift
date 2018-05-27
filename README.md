@@ -16,9 +16,7 @@ Below is the explaination of various configs:
 | rerunOnSchemaChange | if false, processes the data as JSON. If true, uses the encoding class to encode the data. |  |  |  |
 | takeDistinctValuesOnly | If true, only the distinct value are taken from kafka for a run. | Boolean | No | false  |
 | takeOldestValue | If true, oldest value is taken from kafka for a run. In case false latest value is taken Only used when isUpsert or takeDistinctValuesOnly is true | Boolean | No | false  |
-| dataSink | "class used for dataSink. For now there are just 2 classes : |
-| com.goibibo.dp.kafkaToRedshift.dataSink.RedshiftSink |
-| com.goibibo.dp.kafkaToRedshift.dataSink.S3Sink" | String | Yes |  |
+| dataSink | "class used for dataSink. For now there are just 2 classes :         com.goibibo.dp.kafkaToRedshift.dataSink.RedshiftSink and com.goibibo.dp.kafkaToRedshift.dataSink.S3Sink" | String | Yes |  |
 | filterQuery | Sql query that can be used to enrich the data during processing only. | String | No |  |
 | keyConverter | Converter used to get value from String. As of now, key can either be String or  |  |  |  |
 | redshiftUrl | Redshift URL for dumping the data. | String | Yes |  |
@@ -72,6 +70,12 @@ Coloumn Mapping:
 | columnEncoding | Encoding in Redshift. | String | No | ZSTD |
 
 
+Metric Recorder Config:
+
+| Config Name | Description | Type | Mandatory | Default |
+| ----------- | ----------- | ---- | --------- | ------- |
+| className | "Class name for Metric Recorder. Below are the Metric Recorder classes that are implemented. com.goibibo.dp.kafkaToRedshift.metrics.FileMetricRecorder and com.goibibo.dp.kafkaToRedshift.metrics.DynamodbMetricRecorder" | String | no | com.goibibo.dp.kafkaToRedshift.metrics.DynamodbMetricRecorder |
+| extraConfig | In a Map you can define all the extra configs to be used by Metric Recorders. | String | no |  |
 
 
 
