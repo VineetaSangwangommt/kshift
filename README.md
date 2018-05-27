@@ -38,3 +38,41 @@ Below is the explaination of various configs:
 | s3SinkConfig | S3 Properties for Sink to S3. It will be object of S3SinkConfig which is described in later sections. | Array[S3SinkConfig] | No |  |
 | metricConfig | Metrics Logger Configs to record the metrics of the run and task. Right now there are 2 Metric Recorders: File and DynamoDB | MetricConfig | No | DynamoDB recorder |
 
+
+S3 Sink Config:
+
+| Config Name | Description | Type | Mandatory | Default |
+| ----------- | ----------- | ---- | --------- | ------- |
+|s3Location | Location in S3 where data needs to be dumped. | String |  | |
+|createPartitions | Create partition in the data. if true, partitions will be created. As of now, partition can only be created using date and hour. | Boolean | No | true |
+|addPartitions | Add Partititions to Spectrum. If true, partitions will be added. | Boolean | No | false |
+|partitionConfig | Configuration about the partitions. Described in next section. | PartitionConfig | Yes | |
+
+
+Partition Config:
+
+| Config Name | Description | Type | Mandatory | Default |
+| ----------- | ----------- | ---- | --------- | ------- |
+| partitionFieldName | Column name to be used for partition. | String | No | Current date |
+| partitionFieldFormat | Format of the column name to be used to partition. Give date format or timestamp in case of epoch.  | String | No | timestamp |
+| datePartitionFormat | Format of date in partitioned data | String | No | yyyy-MM-dd |
+| datePartitionName | Name of date column in partitioned data | String | No | __date |
+| hourPartitionFormat | Format of hour in partitioned data | String | No | HH |
+| hourPartitionName | Name of hour column in partitioned data | String | No | __hour |
+
+
+Coloumn Mapping: 
+
+| Config Name | Description | Type | Mandatory | Default |
+| ----------- | ----------- | ---- | --------- | ------- |
+| columnName | Name of the column in Redshift or Spectrum | String | Yes |  |
+| columnType | Type of Column in Redshift. | String | No |  |
+| columnSource | Source of the column from data in kafka. | String | Yes |  |
+| sourceFormat | Format of the column. Right now used only for date. e.g. 'dd-MM-yyyy' | String | No | Calculated on runtime.  |
+| columnEncoding | Encoding in Redshift. | String | No | ZSTD |
+
+
+
+
+
+
