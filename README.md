@@ -1,8 +1,11 @@
 # kshift
 
-Kshift is a ETL tool to persist data from kafka to Any Store. As of now it supports Redshift and S3 (Redshift Spectrum) as Sinks.
+Kshift is a ETL tool to persist data from kafka to Any Store. As of now it supports Redshift and S3 (Redshift Spectrum) as Sinks. 
 
-Below is the explaination of various configs:
+It can be run simply by using the below specified command:
+```spark-submit --class com.goibibo.dp.kafkaToRedshift.KafkaToRedshift kShift-assembly.jar --task-files taskfile.json --config-file kshiftconfig.conf```
+
+Below is the explaination of various configs of task configs:
 
 | Config Name  | Description | Type | Mandatory | Default |
 | ------------ | ----------- | ---- | --------- | ------- |
