@@ -6,4 +6,3 @@ Below is the explaination of various configs:
 
 |  Config Name | Description | Type | Mandatory | Default |
 | ----|----|----|----- |
-
